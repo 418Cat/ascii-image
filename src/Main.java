@@ -88,7 +88,7 @@ public class Main {
 			try {
 				outputImg.createNewFile();
 				ImageIO.write(txtToImg(txt), outputImg.getName().split("\\.")[outputImg.getName().split("\\.").length-1], outputImg);
-				System.out.println("printed to image");
+				System.out.println("Printed to image");
 			} catch(Exception e){
 				System.err.println(e);
 				System.exit(0);
@@ -104,11 +104,14 @@ public class Main {
 				System.exit(0);
 			}
 			
+			System.out.println("\nPrinting to text file");
 			for(int i = 0; i < txt.size(); i++) {
 				txtWrt.write(txt.get(i) + "\n");
+				System.out.print("\r" + (String.valueOf((float)100*(i+1)/(txt.size())) + "----").substring(0, 5) + "%");
 			}
 			txtWrt.close();
 			
+			System.out.println("Printed to text file");
 		}
 		
 	}
